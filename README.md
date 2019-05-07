@@ -1,6 +1,5 @@
-#  **TentacleBot**
-## TentacleBot - это бот, который поможет вам выбрарть, что посмотреть
+#  **Strange Sand**
 #### Электронная почта: **mr1302@ya.ru**
 #### VK: **https://vk.com/flynntaggart**
-#### Заявка в файле mshcheglov_tentaclebot.md
+#### Заявка в файле mshcheglov_application.md
 
