@@ -1,5 +1,14 @@
-x = obj_player.x - 8;
-y = obj_player.y - 23;
+x = obj_player.x;
+y = obj_player.y - 17;
+
+//show_debug_message("weapon_depth_before: " + string(depth) + "  " + "player_depth: " + string(obj_player.depth))
+if(obj_player.facing == dir.up)
+	depth = obj_player.depth + 1;
+else
+	depth = obj_player.depth - 1;
+	
+//show_debug_message("weapon_depth_after: " + string(depth) + "  " + "player_depth: " + string(obj_player.depth))
+
 direction = point_direction(x,y,mouse_x,mouse_y); //изменить на попворот игрока
 
 if (direction > 90) && (direction < 270) image_yscale = -1; else image_yscale = 1;
@@ -22,7 +31,7 @@ if (current_delay == 0) && (projectile != -1)
 {
 	if (ammo[weapon] != 0)
 	{
-		with (instance_create_layer(x + lengthdir_x(length, direction), y + lengthdir_y(length, direction) + 5, "Projectiles", projectile))
+		with (instance_create_layer(x + lengthdir_x(length, direction), y + lengthdir_y(length, direction) - 3, "Projectiles", projectile))
 		{
 			image_angle = other.direction;
 			direction = other.direction;
@@ -47,7 +56,7 @@ current_delay = max(-1,current_delay-1);
 if (current_delay == -1) current_cd = max(0,current_cd-1);
 current_recoil = max(0,floor(current_recoil*0.8));
 
-depth = obj_player.depth-1;
+
 
 
 if (keyboard_check_pressed(ord("1")) && ammo[1] > 0) s_change_weapon(1);

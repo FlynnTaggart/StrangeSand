@@ -1,4 +1,3 @@
-/// @description
 move_cam = keyboard_check(ord("C"));
 
 if(move_cam){

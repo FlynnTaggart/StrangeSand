@@ -52,6 +52,7 @@ else{
 		show_debug_message(string(x_frame));
 	}
 }
+
 //shadow
 if(spr_shadow != -1) draw_sprite(spr_shadow, 0, x, y);
 

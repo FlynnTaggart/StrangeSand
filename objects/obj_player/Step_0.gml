@@ -114,27 +114,6 @@ if(input_interact){
 	}
 }
 
-/*var aim_side_x = sign(mouse_x - x);
-var aim_side_y = sign(mouse_y - y);
-//show_debug_message("aim_side_x: " + string(aim_side_x) + "   " + "aim_side_y: " + string(aim_side_y));
-
-if(aim_side_x == 0 && aim_side_y >= 0)
-	facing = dir.down;
-else if(aim_side_x == 0 && aim_side_y == -1)
-	facing = dir.up; 
-else if(aim_side_x == 1 && aim_side_y == 0)
-	facing = dir.up; 
-else if(aim_side_x == 0 && aim_side_y <= 0)
-	facing = dir.up; 	
-else if(aim_side_x == 0 && aim_side_y <= 0)
-	facing = dir.up; 
-else if(aim_side_x == 0 && aim_side_y <= 0)
-	facing = dir.up; 
-else if(aim_side_x == 0 && aim_side_y <= 0)
-	facing = dir.up; 
-else if(aim_side_x == 0 && aim_side_y <= 0)
-	facing = dir.up; 
-*/
 if(h_input == 0 && v_input == 0)
 	is_moving = false;
 
@@ -142,7 +121,7 @@ x += move_x;
 y += move_y;
 
 mouse_dir = point_direction(x, y, mouse_x, mouse_y);
-show_debug_message("mouse_dir: " + string(mouse_dir));
+//show_debug_message("mouse_dir: " + string(mouse_dir));
 
 if((mouse_dir >= dir.right && mouse_dir < dir.right_up) || (mouse_dir >= dir.right_down && mouse_dir < 360))
 	facing = dir.right;
