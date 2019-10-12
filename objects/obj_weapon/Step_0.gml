@@ -1,4 +1,4 @@
-x = obj_player.x;
+x = obj_player.x - 8;
 y = obj_player.y - 23;
 direction = point_direction(x,y,mouse_x,mouse_y); //изменить на попворот игрока
 

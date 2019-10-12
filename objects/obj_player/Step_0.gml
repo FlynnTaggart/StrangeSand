@@ -5,10 +5,10 @@ if(is_dead){
 }
 
 
-input_left = keyboard_check(vk_left);
-input_right = keyboard_check(vk_right);
-input_up = keyboard_check(vk_up);
-input_down = keyboard_check(vk_down);
+input_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
+input_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
+input_up = keyboard_check(vk_up) || keyboard_check(ord("W"));
+input_down = keyboard_check(vk_down) || keyboard_check(ord("S"));
 input_walk = keyboard_check(vk_control);
 input_run = keyboard_check(vk_shift);
 input_interact = keyboard_check_pressed(ord("E"));
@@ -31,10 +31,10 @@ if(h_input != 0 || v_input != 0){
 	dirr = point_direction(0, 0, h_input, v_input);
 	move_x = lengthdir_x(spd, dirr);
 	move_y = lengthdir_y(spd, dirr);
-	facing = dirr;
+	is_moving = true;
 }
-else
-	facing = -1;
+/*else
+	facing = -1;*/
 	
 	
 if(move_x != 0){
@@ -114,5 +114,41 @@ if(input_interact){
 	}
 }
 
+/*var aim_side_x = sign(mouse_x - x);
+var aim_side_y = sign(mouse_y - y);
+//show_debug_message("aim_side_x: " + string(aim_side_x) + "   " + "aim_side_y: " + string(aim_side_y));
+
+if(aim_side_x == 0 && aim_side_y >= 0)
+	facing = dir.down;
+else if(aim_side_x == 0 && aim_side_y == -1)
+	facing = dir.up; 
+else if(aim_side_x == 1 && aim_side_y == 0)
+	facing = dir.up; 
+else if(aim_side_x == 0 && aim_side_y <= 0)
+	facing = dir.up; 	
+else if(aim_side_x == 0 && aim_side_y <= 0)
+	facing = dir.up; 
+else if(aim_side_x == 0 && aim_side_y <= 0)
+	facing = dir.up; 
+else if(aim_side_x == 0 && aim_side_y <= 0)
+	facing = dir.up; 
+else if(aim_side_x == 0 && aim_side_y <= 0)
+	facing = dir.up; 
+*/
+if(h_input == 0 && v_input == 0)
+	is_moving = false;
+
 x += move_x;
 y += move_y;
+
+mouse_dir = point_direction(x, y, mouse_x, mouse_y);
+show_debug_message("mouse_dir: " + string(mouse_dir));
+
+if((mouse_dir >= dir.right && mouse_dir < dir.right_up) || (mouse_dir >= dir.right_down && mouse_dir < 360))
+	facing = dir.right;
+if(mouse_dir >= dir.right_up && mouse_dir < dir.left_up)
+	facing = dir.up;
+if(mouse_dir >= dir.left_up && mouse_dir < dir.left_down)
+	facing = dir.left;
+if(mouse_dir >= dir.left_down && mouse_dir < dir.right_down)
+	facing = dir.down;

@@ -7,19 +7,34 @@ if(is_dead){
 	var anim_spd = 4;
 	y_frame = 20;
 }
-if(!is_dead)
-	switch(facing){
-		case dir.right: y_frame = 11; break;
-		case dir.right_up: y_frame = 11; break;
-		case dir.right_down: y_frame = 11; break;
-		case dir.up: y_frame = 8; break;
-		case dir.left: y_frame = 9; break;
-		case dir.left_up: y_frame = 9; break;
-		case dir.left_down: y_frame = 9; break;
-		case dir.down: y_frame = 10; break;
-		case -1: x_frame = 0; break;
+if(!is_dead){
+	if(is_moving)
+		switch(facing){
+			case dir.right: y_frame = 11; break;
+			case dir.right_up: y_frame = 11; break;
+			case dir.right_down: y_frame = 11; break;
+			case dir.up: y_frame = 8; break;
+			case dir.left: y_frame = 9; break;
+			case dir.left_up: y_frame = 9; break;
+			case dir.left_down: y_frame = 9; break;
+			case dir.down: y_frame = 10; break;
+			case -1: x_frame = 0; break;
+		}
+	else{
+		x_frame = 0;
+		switch(facing){
+			case dir.right: y_frame = 11; break;
+			case dir.right_up: y_frame = 11; break;
+			case dir.right_down: y_frame = 11; break;
+			case dir.up: y_frame = 8; break;
+			case dir.left: y_frame = 9; break;
+			case dir.left_up: y_frame = 9; break;
+			case dir.left_down: y_frame = 9; break;
+			case dir.down: y_frame = 10; break;
+			//case -1: x_frame = 0; break;
+		}
 	}
-
+}
 var xx = x - x_offset;
 var yy = y - y_offset;
 
