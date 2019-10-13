@@ -15,7 +15,8 @@
         "b5eab018-dc30-44be-8e97-ca3eb391eb1f",
         "de0f98f8-55dd-430a-becf-44fc62a5c7bf",
         "615ce787-aca1-4154-958a-e1bb396c1c10",
-        "912bce99-c566-4fc3-9d92-2b9542f249a0"
+        "912bce99-c566-4fc3-9d92-2b9542f249a0",
+        "37715980-6524-42d1-9f1e-2ee89ba6271c"
     ],
     "filterType": "GMSprite",
     "folderName": "Cactuses",

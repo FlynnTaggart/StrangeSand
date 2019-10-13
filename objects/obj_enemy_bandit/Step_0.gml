@@ -41,7 +41,7 @@ if(instance_exists(obj_player)){
 	y += sign(obj_player.y - y) * spd;
 }
 
-if(can_attack && point_distance(obj_player.x, obj_player.y, x, y) < 300){
+/*if(can_attack && point_distance(obj_player.x, obj_player.y, x, y) < 300){
 	show_debug_message("!!!");
 	attacking = true;
 	if((obj_player.x - x < 16 && obj_player.x - x > -16) && obj_player.y < y){
@@ -67,4 +67,4 @@ if(can_attack && point_distance(obj_player.x, obj_player.y, x, y) < 300){
 	alarm[3] = cooldown;
 	can_attack = false;
 	can_move = false;
-}
+}*/

@@ -22,6 +22,7 @@ if(!is_dead){
 		}
 	else{
 		x_frame = 0;
+		show_debug_message(string(y_frame));
 		switch(facing){
 			case dir.right: y_frame = 11; break;
 			case dir.right_up: y_frame = 11; break;

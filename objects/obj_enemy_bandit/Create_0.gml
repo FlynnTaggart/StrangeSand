@@ -2,8 +2,8 @@ event_inherited();
 
 show_debug_message("x_offset: " + string(x_offset) + "    y_offset: " + string(y_offset))
 
-x_offset = 32;
-y_offset = 41;
+x_offset = sprite_get_xoffset(mask_index);
+y_offset = sprite_get_yoffset(mask_index);
 
 
 walk_spd = 1;
@@ -42,9 +42,9 @@ hp = 1;
 alarm[0] = 1;
 facing = 0;
 
-var inst = instance_create_layer(x, y - 32, "Instances", obj_weapon_enemy);
+/*var inst = instance_create_layer(x, y - 32, "Instances", obj_weapon_enemy);
 with(inst){
 	owner = other.id;
 	s_change_weapon(1);
-}
+}*/
 is_dead = false;

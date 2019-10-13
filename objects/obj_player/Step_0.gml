@@ -122,7 +122,7 @@ y += move_y;
 
 mouse_dir = point_direction(x, y, mouse_x, mouse_y);
 //show_debug_message("mouse_dir: " + string(mouse_dir));
-
+/*
 if((mouse_dir >= dir.right && mouse_dir < dir.right_up) || (mouse_dir >= dir.right_down && mouse_dir < 360))
 	facing = dir.right;
 if(mouse_dir >= dir.right_up && mouse_dir < dir.left_up)
@@ -130,4 +130,9 @@ if(mouse_dir >= dir.right_up && mouse_dir < dir.left_up)
 if(mouse_dir >= dir.left_up && mouse_dir < dir.left_down)
 	facing = dir.left;
 if(mouse_dir >= dir.left_down && mouse_dir < dir.right_down)
+	facing = dir.down;
+	*/
+if(mouse_dir >= dir.right_up && mouse_dir < dir.left_up)
+	facing = dir.up;
+else
 	facing = dir.down;

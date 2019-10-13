@@ -1,13 +1,14 @@
 x = obj_player.x;
 y = obj_player.y - 17;
 
-//show_debug_message("weapon_depth_before: " + string(depth) + "  " + "player_depth: " + string(obj_player.depth))
-if(obj_player.facing == dir.up)
+if(obj_player.facing == dir.up || obj_player.facing == dir.left){
 	depth = obj_player.depth + 1;
-else
+	y-=3;
+}
+else{
 	depth = obj_player.depth - 1;
-	
-//show_debug_message("weapon_depth_after: " + string(depth) + "  " + "player_depth: " + string(obj_player.depth))
+	y = obj_player.y - 17;
+}
 
 direction = point_direction(x,y,mouse_x,mouse_y); //изменить на попворот игрока
 

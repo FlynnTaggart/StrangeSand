@@ -9,6 +9,12 @@ if(move_cam){
 	y += (input_down - input_up) * 6;
 } 
 else{
-	x = clamp(x, following.x - h_border, following.x + h_border);
-	y = clamp(y, following.y - v_border, following.y + v_border);
+	if(instance_exists(following)){
+		x_to = following.x;
+		y_to = following.y;
+	}
+	x += (x_to - x) / 25;
+	y += (y_to - y) / 25;
+	x = clamp(x, view_w_half + buff, room_width - view_w_half - buff);
+	y = clamp(y, view_h_half + buff, room_height - view_h_half - buff);
 }

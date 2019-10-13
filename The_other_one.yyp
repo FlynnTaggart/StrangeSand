@@ -63,6 +63,14 @@
             }
         },
         {
+            "Key": "0566f754-b9b5-4607-9862-5e7afa9bd8c2",
+            "Value": {
+                "id": "19c235f9-be66-4ade-8854-1787c316bab0",
+                "resourcePath": "sprites\\spr_pipe\\spr_pipe.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "05a19062-85c2-4a12-8588-6da0c5ad3264",
             "Value": {
                 "id": "e003d6d1-4dfe-4a42-8c0d-bd9fbcdc93e5",
@@ -92,6 +100,14 @@
                 "id": "ebf7b8d7-5fa5-440b-996f-240e537c36ad",
                 "resourcePath": "sprites\\spr_legs_female_pants_teal\\spr_legs_female_pants_teal.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0bb8efb7-e57d-4717-8e1a-f93ceb9cab8f",
+            "Value": {
+                "id": "3e80f277-bff0-498f-9481-7ff79befbe4f",
+                "resourcePath": "objects\\obj_enemy_banditt\\obj_enemy_banditt.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -751,6 +767,14 @@
             }
         },
         {
+            "Key": "701fed02-33c0-4be9-b35a-4cc7469c6783",
+            "Value": {
+                "id": "94227d96-4535-4d67-a7bd-d96ee6c86a72",
+                "resourcePath": "objects\\obj_wp_pipe\\obj_wp_pipe.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7181f981-65fe-4724-98b1-4c06fae10667",
             "Value": {
                 "id": "021b83d6-aa6a-4b52-aac8-79f9abe9acd0",
@@ -780,6 +804,14 @@
                 "id": "bd4875ea-645c-48c2-813c-10a0fcf23039",
                 "resourcePath": "objects\\obj_silvio\\obj_silvio.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "7864db8a-b755-4523-8a24-1e648a073334",
+            "Value": {
+                "id": "57913b72-ee20-4f2f-a510-ea618574032e",
+                "resourcePath": "sprites\\spr_torso_male_chest_test\\spr_torso_male_chest_test.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -987,6 +1019,14 @@
             "Value": {
                 "id": "2c02ed03-d5dc-429e-b0d5-8245f6c38f53",
                 "resourcePath": "sprites\\spr_hair_male_mohawk_blonde\\spr_hair_male_mohawk_blonde.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a49e08d8-de62-4528-9461-f1a82656bb88",
+            "Value": {
+                "id": "07246c94-666d-4d5c-b5bc-50248c47747a",
+                "resourcePath": "sprites\\spr_legs_male_robe_skirt_test\\spr_legs_male_robe_skirt_test.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1403,6 +1443,14 @@
             "Value": {
                 "id": "3cc33715-726a-4bff-b7a6-5ceb3440925d",
                 "resourcePath": "sprites\\spr_cactus_9\\spr_cactus_9.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "def58f76-8596-4f4c-8af3-aef2ed160598",
+            "Value": {
+                "id": "365696e9-fc6f-45e2-81c5-14f31b3344a5",
+                "resourcePath": "sprites\\spr_pipe_hand\\spr_pipe_hand.yy",
                 "resourceType": "GMSprite"
             }
         },
