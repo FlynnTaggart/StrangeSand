@@ -743,6 +743,14 @@
             }
         },
         {
+            "Key": "6d5d86e7-f6b8-4444-a9c6-7c93e09e1e4a",
+            "Value": {
+                "id": "9fd08c4f-e0f1-4745-9ac2-9f900eb1098f",
+                "resourcePath": "views\\6d5d86e7-f6b8-4444-a9c6-7c93e09e1e4a.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "6e87188f-a1e1-4409-ac9b-668b26b52ae2",
             "Value": {
                 "id": "6d6b920c-a9b1-4224-b2a8-ce0bc64fe112",
@@ -972,6 +980,14 @@
                 "id": "7aada5a4-7c1f-4ae0-bc6f-a0a37071c664",
                 "resourcePath": "sprites\\spr_cactus_3\\spr_cactus_3.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "94403dac-4904-43c7-b6f9-d30c54d94ba7",
+            "Value": {
+                "id": "9320e0c5-d1d7-45b7-8ec3-f2cd35f425e5",
+                "resourcePath": "views\\94403dac-4904-43c7-b6f9-d30c54d94ba7.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -1508,6 +1524,14 @@
                 "id": "0543e5d8-acc5-4ca9-8bbc-d5a0658e54cb",
                 "resourcePath": "sprites\\spr_torso_male_shirt_brown\\spr_torso_male_shirt_brown.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ed3a6fd6-2d17-42c5-95d7-7e655bbf30fc",
+            "Value": {
+                "id": "6afe3516-44f8-4c49-8713-f517235dffd6",
+                "resourcePath": "views\\ed3a6fd6-2d17-42c5-95d7-7e655bbf30fc.yy",
+                "resourceType": "GMFolder"
             }
         },
         {

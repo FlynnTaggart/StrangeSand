@@ -22,7 +22,7 @@ if(!is_dead){
 		}
 	else{
 		x_frame = 0;
-		show_debug_message(string(y_frame));
+		//show_debug_message(string(y_frame));
 		switch(facing){
 			case dir.right: y_frame = 11; break;
 			case dir.right_up: y_frame = 11; break;
@@ -50,7 +50,7 @@ if(!is_dead){
 else{
 	if(x_frame + anim_spd / 60 < anim_len){
 		x_frame += anim_spd / 60;
-		show_debug_message(string(x_frame));
+		//show_debug_message(string(x_frame));
 	}
 }
 

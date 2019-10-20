@@ -59,7 +59,7 @@ spd = run_spd;
 if(can_attack && point_distance(obj_player.x, obj_player.y, x, y) < 20 && (abs(obj_player.y - y))){
 	move_x = 0;
 	move_y = 0;
-	show_debug_message("!!!");
+	//show_debug_message("!!!");
 	attacking = true;
 	if((obj_player.x - x < 16 && obj_player.x - x > -16) && obj_player.y < y){
 		instance_create_layer(x, y - 9, "Projectiles", obj_beetle_attack);

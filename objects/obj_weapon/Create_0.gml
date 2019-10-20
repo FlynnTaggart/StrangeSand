@@ -44,7 +44,7 @@ ds_map_add(weapons[0],"melee",false);
 weapons[3] = ds_map_create();
 ds_map_add(weapons[2],"sprite", spr_pipe_hand);
 ds_map_add(weapons[2],"recoil", 0);
-ds_map_add(weapons[2],"recoil_push", 0);
+ds_map_add(weapons[2],"recoil_push", -2);
 ds_map_add(weapons[2],"damage", 1);
 ds_map_add(weapons[2],"projectile", -1);
 ds_map_add(weapons[2],"startup", 3);

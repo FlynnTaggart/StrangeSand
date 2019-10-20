@@ -4,20 +4,11 @@
     "mvc": "1.0",
     "name": "obj_wp_pipe",
     "eventList": [
-        {
-            "id": "cfec2582-316b-4676-9e97-c2b2ae68cd39",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 8,
-            "m_owner": "701fed02-33c0-4be9-b35a-4cc7469c6783"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "00000000-0000-0000-0000-000000000000",
+    "parentObjectId": "d84c57b0-d458-41b7-94b4-b2ddb0042a3d",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
