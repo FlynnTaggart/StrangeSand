@@ -5,10 +5,10 @@ if(is_dead){
 }
 
 
-input_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
-input_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
-input_up = keyboard_check(vk_up) || keyboard_check(ord("W"));
-input_down = keyboard_check(vk_down) || keyboard_check(ord("S"));
+input_left = keyboard_check(global.key_left);
+input_right = keyboard_check(global.key_right);
+input_up = keyboard_check(global.key_up);
+input_down = keyboard_check(global.key_down);
 input_walk = keyboard_check(vk_control);
 input_run = keyboard_check(vk_shift);
 input_interact = keyboard_check_pressed(ord("E"));

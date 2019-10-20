@@ -29,3 +29,5 @@ enum dir {
 global.game_width = 720;
 global.game_height = 360;
 display_set_gui_size(global.game_width, global.game_height);
+
+pausee = false;

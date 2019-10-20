@@ -1,4 +1,5 @@
 /// @description
+if(global.pause) exit;
 if(do_transition){
 	if(room != spawn_room){
 		black_alpha += 0.1;
@@ -15,7 +16,6 @@ if(do_transition){
 	draw_rectangle_color(0, 0, gui_width, gui_height, c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1);
 }
-
 if(obj_player.is_dead){
 	depth = -99;
 	with(obj_player){
