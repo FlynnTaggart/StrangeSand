@@ -1,5 +1,5 @@
 depth = -1000;
-if(keyboard_check_pressed(ord("I"))) show_inventory = !show_inventory;
+if(global.advice_complete && keyboard_check_pressed(ord("I"))) show_inventory = !show_inventory;
 
 if(!show_inventory) exit;
 
@@ -32,7 +32,7 @@ else{
 }
 mouse_in_weapon_slots = true;
 
-if(nx >= 5 && nx < inv_slots_width && ny == 3){
+if(nx >= 5 && nx < inv_slots_width && i_mousey > 118 && i_mousey < 151){
 	var sx = i_mousex - nx * cell_xbuff;
 	var sy = i_mousey - ny * cell_ybuff;
 	if(sx < cell_size * scale && sy < cell_size * scale){

@@ -15,6 +15,9 @@ enum menu_page{
 	audio,
 	controls,
 	graphics,
+	start,
+	ask_to_exit,
+	ask_to_advice,
 	height
 }
 
@@ -30,14 +33,14 @@ enum menu_element_type{
 ds_menu_main = s_create_menu_page(
 	["RESUME", menu_element_type.script_runner, s_resume_game],
 	["SETTINGS", menu_element_type.page_transfer, menu_page.settings],
-	["EXIT", menu_element_type.script_runner, s_exit_game],
+	["EXIT", menu_element_type.page_transfer, menu_page.ask_to_exit],
 );
-
+prev_page = menu_page.start;
 ds_menu_settings = s_create_menu_page(
 	["AUDIO", menu_element_type.page_transfer, menu_page.audio],
 	["CONTROLS", menu_element_type.page_transfer, menu_page.controls],
 	["GRAPHICS", menu_element_type.page_transfer, menu_page.graphics],
-	["BACK", menu_element_type.page_transfer, menu_page.main],
+	["BACK", menu_element_type.page_transfer, prev_page],
 );
 
 ds_menu_audio = s_create_menu_page(
@@ -54,12 +57,27 @@ ds_menu_controls = s_create_menu_page(
 );
 
 ds_menu_graphics = s_create_menu_page(
-	["FULLSCREEN", menu_element_type.toggle, s_change_window_mode, 1, ["FULLSCREEN", "WINDOWED"]],
+	["FULLSCREEN", menu_element_type.toggle, s_change_window_mode, 1, ["ON", "OFF"]],
 	["BACK", menu_element_type.page_transfer, menu_page.settings],
 );
 
+ds_menu_start = s_create_menu_page(
+	["NEW GAME", menu_element_type.page_transfer, menu_page.ask_to_advice],
+	["CONTINUE", menu_element_type.script_runner, s_continue_game],
+	["SETTINGS", menu_element_type.page_transfer, menu_page.settings],
+	["EXIT", menu_element_type.page_transfer, menu_page.ask_to_exit],
+);
+
+ds_menu_ask_to_exit = s_create_menu_page(
+	["DO YOU WANT TO EXIT?", menu_element_type.toggle, s_exit_game, 1, ["YES", "NO"]],
+);
+
+ds_menu_ask_to_advice = s_create_menu_page(
+	["SHOW CONTROLL HINTS?", menu_element_type.toggle, s_show_advice, 1, ["YES", "NO"]],
+);
+
 page = 0;
-menu_pages = [ds_menu_main, ds_menu_settings, ds_menu_audio, ds_menu_controls, ds_menu_graphics];
+menu_pages = [ds_menu_main, ds_menu_settings, ds_menu_audio, ds_menu_controls, ds_menu_graphics, ds_menu_start, ds_menu_ask_to_exit, ds_menu_ask_to_advice];
 for(var i = 0; i < array_length_1d(menu_pages); ++i)
 	menu_option[i] = 0;
 	

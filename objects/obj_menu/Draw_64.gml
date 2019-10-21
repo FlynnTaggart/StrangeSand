@@ -8,6 +8,7 @@ var start_y = gheight / 2 - ((ds_height - 1) / 2) * y_buffer, start_x = gwidth /
 
 //Draw Background
 var c = c_black;
+draw_set_font(fnt_text_12);
 draw_set_alpha(1);
 draw_rectangle_color(0, 0, gwidth, gheight, c, c, c, c, false);
 draw_set_alpha(1);
@@ -25,6 +26,9 @@ for(var yy = 0; yy < ds_height; ++yy){
 	if(yy == menu_option[page]){
 		c = c_orange;
 		xo = -(x_buffer) / 2;
+	}
+	if(page == menu_page.start && yy == 1){
+		c = c_dkgray;
 	}
 	draw_text_color(ltx + xo, lty, ds_grid[# 0, yy], c, c, c, c, 1);
 }
@@ -74,9 +78,14 @@ for(var yy = 0; yy < ds_height; ++yy){
 			
 			if(current_val == 0){ c1 = c; c2 = c_dkgray; }
 			else				{ c1 = c_dkgray; c2 = c; }
-			
-			draw_text_color(rtx, rty, "ON", c1, c1, c1, c1, 1);
-			draw_text_color(rtx + 32, rty, "OFF", c2, c2, c2, c2, 1);
+			if(page == menu_page.ask_to_exit || page == menu_page.ask_to_advice){
+				draw_text_color(rtx, rty, "YES", c1, c1, c1, c1, 1);
+				draw_text_color(rtx + 32, rty, "NO", c2, c2, c2, c2, 1);
+			}
+			else{
+				draw_text_color(rtx, rty, "ON", c1, c1, c1, c1, 1);
+				draw_text_color(rtx + 32, rty, "OFF", c2, c2, c2, c2, 1);
+			}
 
 		break;
 		
