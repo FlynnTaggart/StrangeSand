@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_wp_arifle",
     "eventList": [
-        
+        {
+            "id": "6e7f84b8-968a-4cf2-87f2-941421702763",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "98d3143a-6984-4983-a38d-b2b6267dfb5f"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

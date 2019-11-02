@@ -4,9 +4,9 @@ t_scale = 0.5
 cell_size = 32;
 show_inventory = false;
 
-inv_slots = 24;
-inv_slots_width = 8;
-inv_slots_height = 3;
+global.inv_slots = 24;
+global.inv_slots_width = 8;
+global.inv_slots_height = 3;
 
 nx_end = 0;
 ny_end = 0;
@@ -14,7 +14,6 @@ ny_end = 0;
 selected_slot = -1;
 selected_weapon_slot = -1;
 mouse_in_weapon_slots = false;
-mouse_in_armor_slot = false;
 mouse_in_inventory = false;
 pickup_slot = -1;
 weapon_pickup_slot = -1;
@@ -48,15 +47,16 @@ slots_y = inv_UI_y + (40 * scale);
 desc_x = info_x;
 desc_y = inv_UI_y + (156 * scale);
 
-ds_player_info = ds_grid_create(2, 2);
-ds_player_info[# 0, 0] = "Gold";
-ds_player_info[# 0, 1] = "Name";
+global.ds_player_info = ds_grid_create(2, 2);
+global.ds_player_info[# 0, 0] = "Gold";
+global.ds_player_info[# 0, 1] = "Name";
 
-ds_player_info[# 1, 0] = irandom_range(0, 99);
-ds_player_info[# 1, 1] = "Player";
+global.ds_player_info[# 1, 0] = 13;
+global.ds_player_info[# 1, 1] = "Player";
+global.gold = global.ds_player_info[# 1, 0];
 
-ds_inventory = ds_grid_create(2, inv_slots);
-ds_weapons_slots = ds_grid_create(1, 3);
+global.ds_inventory = ds_grid_create(2, global.inv_slots);
+global.ds_weapons_slots = ds_grid_create(1, 4);
 
 enum item{
 	none      = 0,
@@ -79,8 +79,9 @@ enum item{
 	arifle    = 17,
 	revolver  = 18,
 	pipe      = 19,
-	armor     = 20,
-	height    = 21,
+	key       = 20,
+	armor     = 21,
+	height    = 22,
 }
 
 ds_items_info = ds_grid_create(2, item.height);
@@ -106,6 +107,7 @@ ds_items_info[# z, i++] = "Mushroom";
 ds_items_info[# z, i++] = "ARifle";
 ds_items_info[# z, i++] = "Revolver";
 ds_items_info[# z, i++] = "Pipe";
+ds_items_info[# z, i++] = "Key";
 ds_items_info[# z, i++] = "Armor";
 
 var z = 1, i = 0; 
@@ -129,13 +131,14 @@ ds_items_info[# z, i++] = "I don't recommend eatin it";
 ds_items_info[# z, i++] = "Shooting fast";
 ds_items_info[# z, i++] = "Shooting slow";
 ds_items_info[# z, i++] = "Easy to use";
+ds_items_info[# z, i++] = "For cases when sesame didn't help";
 ds_items_info[# z, i++] = "Protects you";
 
 
-for(var i = 0; i < inv_slots; ++i){
-	ds_inventory[# 0, i] = irandom_range(1, item.height - 2);
-	if(ds_inventory[# 0, i] != item.arifle && ds_inventory[# 0, i] != item.revolver && ds_inventory[# 0, i] != item.pipe)
-		ds_inventory[# 1, i] = irandom_range(1, 20);
+/*for(var i = 0; i < global.inv_slots; ++i){
+	global.ds_inventory[# 0, i] = irandom_range(1, item.height - 2);
+	if(global.ds_inventory[# 0, i] != item.arifle && global.ds_inventory[# 0, i] != item.revolver && global.ds_inventory[# 0, i] != item.pipe)
+		global.ds_inventory[# 1, i] = irandom_range(1, 20);
 	else
-		ds_inventory[# 1, i] = 1;
-}
+		global.ds_inventory[# 1, i] = 1;
+}*/

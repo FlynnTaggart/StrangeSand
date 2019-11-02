@@ -13,10 +13,10 @@ name = "Silvio";
 voice = snd_voice2;
 
 text = [
-	"Hi! My name is Silvio Some test text more more.Some test text more more.Some test text more more.Some test text more more.Some test text more more.",
+	"Hi! My name is Silvio Some test text more more.Some testtext more more.Some testtext more more.Some test text more more.Some test text more more.",
 	[
-		"Oh, nice, have a nice day! Some test text more more. Some test text more more.Some test text more more.", 
-		"Hmm... Such insteresting name. Are u italian? Some test text more more. Some test text more more."
+		"Take a quest", 
+		"Check quest",
 	], 
 	"Thanks", 
 	"No I'm from Spain"
@@ -27,8 +27,8 @@ next_line = [0, [2, 3], -1, -1];
 scripts = [
 	[s_change_variable, id, "spr_torso", spr_torso_male_top_brown],
 	[
-		[s_change_variable, id, "spr_torso", spr_torso_male_shirt_maroon],
-		[s_change_variable, id, "spr_torso", spr_torso_male_shirt_white],
+		[s_start_quest, quests.Get_the_key],
+		[s_check_quest, quests.Get_the_key],
 	],
 	-1,
 	-1,

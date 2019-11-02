@@ -3,7 +3,7 @@
 ///@arg max_width
 
 var str = argument0;
-var max_width = argument1 + 184;
+var max_width = argument1 + 70;
 show_debug_message(string(max_width));
 var str_len = string_length(str);
 var last_space = 1;

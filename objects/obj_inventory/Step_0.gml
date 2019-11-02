@@ -16,10 +16,10 @@ var nx = i_mousex div cell_xbuff;
 var ny = i_mousey div cell_ybuff;
 
 show_debug_message("mousex: " + string(mousex) + "      mousey: " + string(mousey) + "     i_mousex: " + string(i_mousex) + "     i_mousex: " + string(i_mousey));
-show_debug_message("nx: " + string(nx) + "    ny: " + string(ny));
+show_debug_message("nx: " + string(nx - 4) + "    ny: " + string(ny));
 
 mouse_in_inventory = true;
-if(nx >= 0 && nx < inv_slots_width && ny >= 0 && ny < inv_slots_height){
+if(nx >= 0 && nx < global.inv_slots_width && ny >= 0 && ny < global.inv_slots_height){
 	var sx = i_mousex - nx * cell_xbuff;
 	var sy = i_mousey - ny * cell_ybuff;
 	if(sx < cell_size * scale && sy < cell_size * scale){
@@ -32,7 +32,7 @@ else{
 }
 mouse_in_weapon_slots = true;
 
-if(nx >= 5 && nx < inv_slots_width && i_mousey > 118 && i_mousey < 151){
+if(nx >= 4 && nx < global.inv_slots_width && i_mousey > 118 && i_mousey < 151){
 	var sx = i_mousex - nx * cell_xbuff;
 	var sy = i_mousey - ny * cell_ybuff;
 	if(sx < cell_size * scale && sy < cell_size * scale){
@@ -43,36 +43,22 @@ if(nx >= 5 && nx < inv_slots_width && i_mousey > 118 && i_mousey < 151){
 else
 	mouse_in_weapon_slots = false;
 
-mouse_in_armor_slot = true;
-
-if(nx == 8 && ny == 0){
-	var sx = i_mousex - nx * cell_xbuff;
-	var sy = i_mousey - ny * cell_ybuff;
-	if(sx < cell_size * scale && sy < cell_size * scale){
-		m_slot_x = nx;
-		m_slot_y = ny;
-	}
-}
-else{
-	mouse_in_armor_slot = false;
-}
 if(mouse_in_weapon_slots)
-	selected_weapon_slot = -5 + nx;
-if(mouse_in_armor_slot)
-	mouse_in_armor_slot = true;
+	selected_weapon_slot = -4 + nx;
 else
-	selected_slot = min(m_slot_x + m_slot_y * inv_slots_width, inv_slots - 1);
-/*if(selected_slot > inv_slots - 1){
+	selected_slot = min(m_slot_x + m_slot_y * global.inv_slots_width, global.inv_slots - 1);
+/*if(selected_slot > global.inv_slots - 1){
 	m_slot_x = nx_end;	
 	m_slot_y = ny_end;
-	selected_slot = m_slot_x + m_slot_y * inv_slots_width;
+	selected_slot = m_slot_x + m_slot_y * global.inv_slots_width;
 }
 else{
 	nx_end = nx;
 	ny_end = ny;
 }*/
 
-var inv_grid = ds_inventory;
+var inv_grid = global.ds_inventory;
+var wp_grid = global.ds_weapons_slots;
 var ss_item = inv_grid[# 0, selected_slot];
 var create_notification = false;
 
@@ -113,28 +99,75 @@ if(pickup_slot != -1){
 			}
 			else{
 				var p_item = inv_grid[# 0, pickup_slot];
-				if(p_item != item.arifle && p_item != item.revolver && p_item != item.pipe)
+				show_debug_message("selected_weapon_slottt: " + string(p_item));
+				if(p_item != item.arifle && p_item != item.revolver && p_item != item.pipe && p_item != item.armor)
 					pickup_slot = -1;	
 				else{
-					if(nx == 5){
-						if(p_item != item.pipe)
-							pickup_slot = -1;
-						else{
-							ds_weapons_slots[# 0, nx - 5] = p_item;
-							inv_grid[# 0, pickup_slot] = item.none;
-							inv_grid[# 1, pickup_slot] = 0;
-							pickup_slot = -1;
-						}
-					}
-					else{
-						if(p_item != item.revolver && p_item != item.arifle)
-							pickup_slot = -1;
-						else{
-							ds_weapons_slots[# 0, nx - 5] = p_item;
-							inv_grid[# 0, pickup_slot] = item.none;
-							inv_grid[# 1, pickup_slot] = 0;
-							pickup_slot = -1;
-						}
+					switch(nx){
+						case 4:
+							if(p_item != item.armor)
+								pickup_slot = -1;
+							else if(wp_grid[# 0, nx - 4] != 0){
+								inv_grid[# 0, pickup_slot] = wp_grid[# 0, nx - 4];
+								inv_grid[# 1, pickup_slot] = 1;
+								wp_grid[# 0, nx - 4] = p_item;
+								
+							}
+							else{
+								wp_grid[# 0, nx - 4] = p_item;
+								inv_grid[# 0, pickup_slot] = item.none;
+								inv_grid[# 1, pickup_slot] = 0;
+								pickup_slot = -1;
+							}
+						break;
+						case 5:
+							if(p_item != item.pipe)
+								pickup_slot = -1;
+							else if(wp_grid[# 0, nx - 4] != 0){
+								inv_grid[# 0, pickup_slot] = wp_grid[# 0, nx - 4];
+								inv_grid[# 1, pickup_slot] = 1;
+								wp_grid[# 0, nx - 4] = p_item;
+								
+							}
+							else{
+								wp_grid[# 0, nx - 4] = p_item;
+								inv_grid[# 0, pickup_slot] = item.none;
+								inv_grid[# 1, pickup_slot] = 0;
+								pickup_slot = -1;
+							}
+						break;
+						case 6:
+							if(p_item != item.revolver && p_item != item.arifle)
+								pickup_slot = -1;
+							else if(wp_grid[# 0, nx - 4] != 0){
+								inv_grid[# 0, pickup_slot] = wp_grid[# 0, nx - 4];
+								inv_grid[# 1, pickup_slot] = 1;
+								wp_grid[# 0, nx - 4] = p_item;
+								
+							}
+							else{
+								wp_grid[# 0, nx - 4] = p_item;
+								inv_grid[# 0, pickup_slot] = item.none;
+								inv_grid[# 1, pickup_slot] = 0;
+								pickup_slot = -1;
+							}
+						break;
+						case 7:
+							if(p_item != item.revolver && p_item != item.arifle)
+								pickup_slot = -1;
+							else if(wp_grid[# 0, nx - 4] != 0){
+								inv_grid[# 0, pickup_slot] = wp_grid[# 0, nx - 4];
+								inv_grid[# 1, pickup_slot] = 1;
+								wp_grid[# 0, nx - 4] = p_item;
+								
+							}
+							else{
+								wp_grid[# 0, nx - 4] = p_item;
+								inv_grid[# 0, pickup_slot] = item.none;
+								inv_grid[# 1, pickup_slot] = 0;
+								pickup_slot = -1;
+							}
+						break;
 					}
 				}
 			}
@@ -170,98 +203,146 @@ if(pickup_slot != -1){
 		}
 	}	
 }
-
 if(weapon_pickup_slot != -1){
 	if(mouse_check_button_pressed(mb_left)){
 		if(!mouse_in_inventory){
 			if(!mouse_in_weapon_slots){
-				create_notification = true;
-				var p_item = inv_grid[# 0, pickup_slot];
+				//create_notification = true;
+				var p_item = wp_grid[# 0, weapon_pickup_slot];
 				var inn = p_item;
-				inv_grid[# 1, pickup_slot] -= 1;
-				if(inv_grid[# 1, pickup_slot] <= 0){
-					inv_grid[# 0, pickup_slot] = item.none;
-					pickup_slot = -1;
-				}
-				if(p_item != item.arifle && p_item != item.revolver && p_item != item.pipe){
-					var inst = instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_item);
-					with(inst){
-						item_num = p_item;
-						x_frame = item_num mod (spr_width / cell_size);
-						y_frame = item_num div (spr_width / cell_size);
-					}
-				}
-				else{
-					switch(p_item){
-						case item.arifle:
-							var inst = instance_create_layer(obj_player.x + 32 * choose(1, -1), obj_player.y  + 32 * choose(1, -1), "Instances", obj_wp_arifle);
-						break;
-						case item.revolver:
-							var inst = instance_create_layer(obj_player.x + 32 * choose(1, -1), obj_player.y  + 32 * choose(1, -1), "Instances", obj_wp_revolver);
-						break;
-						case item.pipe:
-							var inst = instance_create_layer(obj_player.x + 32 * choose(1, -1), obj_player.y  + 32 * choose(1, -1), "Instances", obj_wp_pipe);
-						break;
-					}
+				wp_grid[# 0, weapon_pickup_slot] = 0;
+				weapon_pickup_slot = -1;
+				switch(p_item){
+					case item.arifle:
+						var inst = instance_create_layer(obj_player.x + 32 * choose(1, -1), obj_player.y  + 32 * choose(1, -1), "Instances", obj_wp_arifle);
+					break;
+					case item.revolver:
+						var inst = instance_create_layer(obj_player.x + 32 * choose(1, -1), obj_player.y  + 32 * choose(1, -1), "Instances", obj_wp_revolver);
+					break;
+					case item.pipe:
+						var inst = instance_create_layer(obj_player.x + 32 * choose(1, -1), obj_player.y  + 32 * choose(1, -1), "Instances", obj_wp_pipe);
+					break;
 				}
 				show_debug_message("Dropped  " + string(p_item))
 			}
 			else{
-				var p_item = inv_grid[# 0, pickup_slot];
-				if(p_item != item.arifle && p_item != item.revolver && p_item != item.pipe)
-					pickup_slot = -1;	
+				var p_item = wp_grid[# 0, weapon_pickup_slot];
+				show_debug_message("selected_weapon_slottt: " + string(p_item));
+				if(p_item != item.arifle && p_item != item.revolver && p_item != item.pipe && p_item != item.armor)
+					weapon_pickup_slot = -1;	
 				else{
-					if(nx == 5){
-						if(p_item != item.pipe)
-							pickup_slot = -1;
-						else{
-							ds_weapons_slots[# 0, nx - 5] = p_item;
-							inv_grid[# 0, pickup_slot] = item.none;
-							inv_grid[# 1, pickup_slot] = 0;
-							pickup_slot = -1;
-						}
-					}
-					else{
-						if(p_item != item.revolver && p_item != item.arifle)
-							pickup_slot = -1;
-						else{
-							ds_weapons_slots[# 0, nx - 5] = p_item;
-							inv_grid[# 0, pickup_slot] = item.none;
-							inv_grid[# 1, pickup_slot] = 0;
-							pickup_slot = -1;
-						}
+					switch(nx){
+						case 4:
+							if(p_item != item.armor)
+								weapon_pickup_slot = -1;
+							else{
+								if(nx - 4 != weapon_pickup_slot){
+									if(wp_grid[# 0, nx - 4] != 0){
+										wp_grid[# 0, weapon_pickup_slot] = wp_grid[# 0, nx - 4];
+										wp_grid[# 0, nx - 4] = p_item;
+									}
+									else{
+										wp_grid[# 0, nx - 4] = p_item;
+										wp_grid[# 0, weapon_pickup_slot] = 0;
+										weapon_pickup_slot = -1;		
+									}
+								}
+								else{
+									weapon_pickup_slot = -1;
+								}
+							}
+						break;
+						case 5:
+							if(p_item != item.pipe)
+								weapon_pickup_slot = -1;
+							else{
+								if(nx - 4 != weapon_pickup_slot){
+									if(wp_grid[# 0, nx - 4] != 0){
+										wp_grid[# 0, weapon_pickup_slot] = wp_grid[# 0, nx - 4];
+										wp_grid[# 0, nx - 4] = p_item;
+									}
+									else{
+										wp_grid[# 0, nx - 4] = p_item;
+										wp_grid[# 0, weapon_pickup_slot] = 0;
+										weapon_pickup_slot = -1;		
+									}
+								}
+								else{
+									weapon_pickup_slot = -1;
+								}
+							}
+						break;
+						case 6:
+							if(p_item != item.revolver && p_item != item.arifle)
+								pickup_slot = -1;
+							else{
+								if(nx - 4 != weapon_pickup_slot){
+									if(wp_grid[# 0, nx - 4] != 0){
+										wp_grid[# 0, weapon_pickup_slot] = wp_grid[# 0, nx - 4];
+										wp_grid[# 0, nx - 4] = p_item;
+									}
+									else{
+										wp_grid[# 0, nx - 4] = p_item;
+										wp_grid[# 0, weapon_pickup_slot] = 0;
+										weapon_pickup_slot = -1;		
+									}
+								}
+								else{
+									weapon_pickup_slot = -1;
+								}
+							}
+						break;
+						case 7:
+							if(p_item != item.revolver && p_item != item.arifle)
+								pickup_slot = -1;
+							else{
+								if(nx - 4 != weapon_pickup_slot){
+									if(wp_grid[# 0, nx - 4] != 0){
+										wp_grid[# 0, weapon_pickup_slot] = wp_grid[# 0, nx - 4];
+										wp_grid[# 0, nx - 4] = p_item;
+									}
+									else{
+										wp_grid[# 0, nx - 4] = p_item;
+										wp_grid[# 0, weapon_pickup_slot] = 0;
+										weapon_pickup_slot = -1;		
+									}
+								}
+								else{
+									weapon_pickup_slot = -1;
+								}
+							}
+						break;
 					}
 				}
 			}
 		}
 		else if(ss_item == item.none){
-			inv_grid[# 0, selected_slot] = inv_grid[# 0, pickup_slot];
-			inv_grid[# 1, selected_slot] = inv_grid[# 1, pickup_slot];
+			inv_grid[# 0, selected_slot] = wp_grid[# 0, weapon_pickup_slot];
+			inv_grid[# 1, selected_slot] = 1;
 			
-			inv_grid[# 0, pickup_slot] = item.none;
-			inv_grid[# 1, pickup_slot] = 0;
+			wp_grid[# 0, weapon_pickup_slot] = 0;
 			
-			pickup_slot = -1;
+			weapon_pickup_slot = -1;
 		}
-		else if(ss_item == inv_grid[# 0, pickup_slot]){
+		/*else if(ss_item == inv_grid[# 0, pickup_slot]){
 			if(selected_slot != pickup_slot){
 				inv_grid[# 1, selected_slot] += inv_grid[# 1, pickup_slot];
 			
 				inv_grid[# 0, pickup_slot] = item.none;
-				inv_grid[# 1, pickup_slot] = 0;	
+				inv_grid[# 1, pickup_slot] = 0;
 			}
 			
 			pickup_slot = -1;
-		}
+		*/
 		else{
-			var ss_number = inv_grid[# 1, selected_slot];
-			inv_grid[# 0, selected_slot] = inv_grid[# 0, pickup_slot];
-			inv_grid[# 1, selected_slot] = inv_grid[# 1, pickup_slot];
-			
+			var ss_number = 1;
+			inv_grid[# 0, selected_slot] = wp_grid[# 0, weapon_pickup_slot];
+			inv_grid[# 1, selected_slot] = 1;
+			pickup_slot = selected_slot;
 			inv_grid[# 0, pickup_slot] = ss_item;
 			inv_grid[# 1, pickup_slot] = ss_number;
 			
-			//pickup_slot = -1;
+			weapon_pickup_slot = -1;
 		}
 	}	
 }
@@ -300,7 +381,7 @@ else if(ss_item != item.none){
 	if(mouse_check_button_pressed(mb_right)){
 		if(mouse_in_weapon_slots && pickup_slot == -1)
 			weapon_pickup_slot = selected_weapon_slot;
-		else if(weapon_pickup_slot = -1)
+		else if(weapon_pickup_slot == -1)
 			pickup_slot = selected_slot;
 	}
 }
@@ -338,7 +419,6 @@ if(create_notification){
 	}
 	#endregion
 }
-if(!mouse_in_inventory) selected_slot = -1;
-show_debug_message("mouse_in_armor_slot: " + string(mouse_in_armor_slot));
+//if(!mouse_in_inventory) selected_slot = -1;
 show_debug_message("selected_slot: " + string(selected_slot));
 show_debug_message("pickup_slot: " + string(pickup_slot));

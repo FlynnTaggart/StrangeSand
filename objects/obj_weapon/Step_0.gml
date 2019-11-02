@@ -1,6 +1,6 @@
 x = obj_player.x;
 y = obj_player.y - 17;
-
+var wp_grid = global.ds_weapons_slots;
 if(obj_player.facing == dir.up || obj_player.facing == dir.left){
 	depth = obj_player.depth + 1;
 	y-=3;
@@ -17,23 +17,21 @@ if (direction > 90) && (direction < 270) image_yscale = -1; else image_yscale = 
 image_angle = direction;
 
 var mouseb;
-if (automatic) mouseb = mouse_check_button(mb_left); else mouseb = mouse_check_button_pressed(mb_left);
+if (automatic)
+	mouseb = mouse_check_button(mb_left); 
+else 
+	mouseb = mouse_check_button_pressed(mb_left);
 
-if (mouseb)
-{
-	if (current_cd == 0)
-	{
+if (mouseb){
+	if (current_cd == 0){
 		current_cd = cooldown;
 		current_delay = startup;
 	}	
 }
 
-if (current_delay == 0) && (projectile != -1)
-{
-	if (ammo[weapon] != 0)
-	{
-		with (instance_create_layer(x + lengthdir_x(length, direction), y + lengthdir_y(length, direction) - 3, "Projectiles", projectile))
-		{
+if (current_delay == 0) && (projectile != -1){
+	if (ammo[weapon] != 0){
+		with (instance_create_layer(x + lengthdir_x(length, direction), y + lengthdir_y(length, direction) - 3, "Projectiles", projectile)){
 			image_angle = other.direction;
 			direction = other.direction;
 			speed = other.bulletspeed;
@@ -44,8 +42,7 @@ if (current_delay == 0) && (projectile != -1)
 		ammo[weapon] -= 1;
 	}
 	
-	with (obj_player)
-	{
+	with (obj_player){
 		move_x += lengthdir_x(other.recoil_push,other.direction);
 		move_y += lengthdir_y(other.recoil_push,other.direction); 
 	}
@@ -57,9 +54,7 @@ current_delay = max(-1,current_delay-1);
 if (current_delay == -1) current_cd = max(0,current_cd-1);
 current_recoil = max(0,floor(current_recoil*0.8));
 
-
-
-
-if (keyboard_check_pressed(ord("1")) && ammo[1] > 0) s_change_weapon(1);
-if (keyboard_check_pressed(ord("2")) && ammo[2] > 0) s_change_weapon(2);
+if (keyboard_check_pressed(ord("1")) && wp_grid[# 0, 2] > 0) s_change_weapon(wp_grid[# 0, 2] - 16);
+if (keyboard_check_pressed(ord("2")) && wp_grid[# 0, 3] > 0) s_change_weapon(wp_grid[# 0, 3] - 16);
+if (keyboard_check_pressed(ord("3")) && wp_grid[# 0, 1] > 0) s_change_weapon(wp_grid[# 0, 1] - 16);
 if (keyboard_check_pressed(ord("0"))) s_change_weapon(0);
