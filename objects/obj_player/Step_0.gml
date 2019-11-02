@@ -4,7 +4,6 @@ if(is_dead){
 	exit;
 }
 
-
 input_left = keyboard_check(global.key_left);
 input_right = keyboard_check(global.key_right);
 input_up = keyboard_check(global.key_up);
@@ -101,7 +100,7 @@ if(input_interact){
 		var inst = collision_rectangle(x - radius, y - radius, x + radius, y + radius, obj_parent_npc, false, false);
 		if(inst != noone){
 			with(inst){
-				other.active_textbox = s_crate_text_box(text, speakers, next_line, scripts);
+				other.active_textbox = s_crate_text_box(text, speakers, next_line, scripts, start_page, id);
 				can_move = false;
 				move_x = 0;
 				move_y = 0;

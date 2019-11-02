@@ -71,7 +71,7 @@ if(input_interact){
 		var inst = collision_rectangle(x - radius, y - radius, x + radius, y + radius, obj_parent_npc, false, false);
 		if(inst != noone){
 			with(inst){
-				other.active_textbox = s_crate_text_box(text, speakers, next_line, scripts);
+				//other.active_textbox = s_crate_text_box(text, speakers, next_line, scripts);
 				can_move = false;
 				move_x = 0;
 				move_y = 0;

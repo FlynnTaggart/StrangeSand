@@ -914,7 +914,7 @@
             "Key": "7baf97ed-4749-40a9-aa87-f6c3583f5edb",
             "Value": {
                 "id": "89cfeca5-e5f0-4691-84c1-e1051cf58a06",
-                "resourcePath": "objects\\obj_quest_giver\\obj_quest_giver.yy",
+                "resourcePath": "objects\\obj_kill_counter\\obj_kill_counter.yy",
                 "resourceType": "GMObject"
             }
         },

@@ -40,7 +40,6 @@ pause = false;
 
 portrait_index = 0;
 text[0] = "";
-page = 0;
 name = "";
 voice = snd_voice1;
 

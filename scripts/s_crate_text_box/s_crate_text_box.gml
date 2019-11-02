@@ -3,6 +3,9 @@
 ///@arg speakers
 ///@arg next_line
 ///@arg scripts
+///@arg page
+///@arg owner npc
+
 //show_debug_message(string(speakers[1].portrait_index));
 var tbox =  instance_create_layer(0, 0, "Textbox", obj_textbox);
 
@@ -11,7 +14,8 @@ with(tbox){
 	speakers = argument1;
 	next_line = argument2;
 	scripts = argument3;
-	
+	page = argument4;
+	owner_npc = argument5;
 	var len = array_length_1d(speakers);
 	for(var i = 0; i < len; i++){
 		show_debug_message(string(i) + " " + string(speakers[i]));

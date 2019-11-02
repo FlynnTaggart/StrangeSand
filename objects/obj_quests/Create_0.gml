@@ -22,7 +22,7 @@ enum reward{
 	height,
 }
 
-quest_count = quests.height - 1;
+quest_count = quests.height;
 
 global.ds_quests = s_quest_grid_create(
 	[
@@ -32,16 +32,16 @@ global.ds_quests = s_quest_grid_create(
 		item.key,
 		1,
 		obj_silvio,
-		reward.Gold,
-		-1,
-		50,
+		reward.Item,
+		item.axe,
+		2,
 		["Get the key and give it to Silvio"],
 	],
 	[
 		-1,
 		quest_type.KILL,
 		"Kill beetles",
-		obj_enemy_beetle,
+		enemies.beetle,
 		2,
 		obj_silvio,
 		reward.Gold,
