@@ -1,3 +1,8 @@
+if(flash > 0){
+	flash--;
+	shader_set(sh_white);
+}
+
 var anim_len = anim_leng;
 var frame_size = 64;
 var anim_spd = anim_spdd;
@@ -74,3 +79,4 @@ if(x_frame < anim_len - 1){
 else{
 	x_frame = 1;	
 }
+shader_reset();

@@ -7,7 +7,10 @@ if (direction > 90) && (direction < 270) image_yscale = -1; else image_yscale = 
 image_angle = direction;
 
 var mouseb;
-if (automatic) mouseb = mouse_check_button(mb_left); else mouseb = mouse_check_button_pressed(mb_left);
+if (automatic && attacking) 
+	mouseb = 1; 
+else 
+	mouseb = mouse_check_button_pressed(mb_left);
 
 if (mouseb)
 {
@@ -31,7 +34,7 @@ if (current_delay == 0) && (projectile != -1)
 			show_debug_message("gun pos: x: " + string(other.x) + "  y: " + string(other.y));
 			show_debug_message("bullet pos: x: " + string(x) + "  y: " + string(y));
 		}
-		ammo[weapon] -= 1;
+		//ammo[weapon] -= 1;
 	}
 	
 	with (obj_player)
@@ -43,9 +46,9 @@ if (current_delay == 0) && (projectile != -1)
 	
 }
 
-current_delay = max(-1,current_delay-1);
-if (current_delay == -1) current_cd = max(0,current_cd-1);
-current_recoil = max(0,floor(current_recoil*0.8));
+current_delay = max(-1, current_delay - 1);
+if (current_delay == -1) current_cd = max(0, current_cd - 1);
+current_recoil = max(0, floor(current_recoil * 0.8));
 
 depth = obj_player.depth-1;
 

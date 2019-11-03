@@ -1,8 +1,6 @@
 if(flash > 0){
 	flash--;
 	shader_set(sh_white);
-	draw_self();
-	shader_reset();		
 }
 
 var anim_len = 9;
@@ -36,3 +34,4 @@ if(spr_shadow != -1) draw_sprite(spr_shadow, 0, x, y);
 
 //base
 if(spr_base != -1) draw_sprite_part(spr_base, 0, floor(x_frame) * frame_size, y_frame * frame_size, frame_size, frame_size, xx, yy);
+shader_reset();	

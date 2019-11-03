@@ -111,14 +111,6 @@
             }
         },
         {
-            "Key": "0bb8efb7-e57d-4717-8e1a-f93ceb9cab8f",
-            "Value": {
-                "id": "3e80f277-bff0-498f-9481-7ff79befbe4f",
-                "resourcePath": "objects\\obj_enemy_banditt\\obj_enemy_banditt.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "0c6e5b7d-d05f-4d05-8f8f-47ecf4b986d0",
             "Value": {
                 "id": "18d2f2c8-5ddd-4050-a3ad-277b5f4ca316",
@@ -267,6 +259,14 @@
             "Value": {
                 "id": "6529851d-c646-47eb-91bc-9ef7a7003bcc",
                 "resourcePath": "scripts\\s_create_menu_page\\s_create_menu_page.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "21e735d2-628c-4b17-a10c-aeae79793a4c",
+            "Value": {
+                "id": "dc43024f-2b6c-4103-ae36-9b8bd44b9a9e",
+                "resourcePath": "scripts\\s_load_game\\s_load_game.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1791,6 +1791,14 @@
             }
         },
         {
+            "Key": "fb41f24e-a48d-4523-a681-f4fa3f55c0f0",
+            "Value": {
+                "id": "e192e630-021a-47c5-8282-e6a584eb1016",
+                "resourcePath": "scripts\\s_save_game\\s_save_game.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "fca1d78d-182a-4ca3-9032-8d1b2dd7f17a",
             "Value": {
                 "id": "0f7515d9-415d-432d-950b-582760cba596",
@@ -1839,7 +1847,9 @@
         "4973cfc0-dcca-4208-8f20-e67c4abda3e0",
         "90d30b20-47c3-46c4-86ab-c1fd0ee5daa2",
         "f60d8d8c-8e49-4d48-8b49-29beb32e9127",
-        "335496c8-b48c-4a33-b6ef-7bd921f67828"
+        "335496c8-b48c-4a33-b6ef-7bd921f67828",
+        "fb41f24e-a48d-4523-a681-f4fa3f55c0f0",
+        "21e735d2-628c-4b17-a10c-aeae79793a4c"
     ],
     "tutorial": ""
 }

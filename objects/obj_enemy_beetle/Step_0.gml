@@ -44,7 +44,7 @@ if(move_y != 0){
 
 x += move_x;
 y += move_y;
-triggered = false;
+//triggered = false;
 
 var player_dead = obj_player.is_dead;
 if(player_dead) exit;

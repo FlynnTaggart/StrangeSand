@@ -2,6 +2,11 @@ var anim_len = 9;
 var frame_size = 64;
 var anim_spd = 13;
 
+if(flash > 0){
+	shader_set(sh_white);
+	flash--;
+}
+
 if(is_dead){
 	var anim_len = 6;
 	var anim_spd = 4;
@@ -71,3 +76,5 @@ if(spr_torso != -1) draw_sprite_part(spr_torso, 0, floor(x_frame) * frame_size, 
 
 //hair
 if(spr_hair != -1)  draw_sprite_part(spr_hair, 0, floor(x_frame) * frame_size, y_frame * frame_size, frame_size, frame_size, xx, yy);
+
+shader_reset();

@@ -2,11 +2,13 @@ x = obj_player.x;
 y = obj_player.y - 17;
 var wp_grid = global.ds_weapons_slots;
 if(obj_player.facing == dir.up || obj_player.facing == dir.left){
-	depth = obj_player.depth + 1;
+//	obj_player.depth--;
+	depth = obj_player.depth + 2;
 	y-=3;
 }
 else{
-	depth = obj_player.depth - 1;
+//	obj_player.depth++;
+	depth = obj_player.depth - 2;
 	y = obj_player.y - 17;
 }
 
@@ -39,7 +41,7 @@ if (current_delay == 0) && (projectile != -1){
 			show_debug_message("gun pos: x: " + string(other.x) + "  y: " + string(other.y));
 			show_debug_message("bullet pos: x: " + string(x) + "  y: " + string(y));
 		}
-		ammo[weapon] -= 1;
+		ammo[weapon]--;
 	}
 	
 	with (obj_player){
@@ -50,9 +52,9 @@ if (current_delay == 0) && (projectile != -1){
 	
 }
 
-current_delay = max(-1,current_delay-1);
-if (current_delay == -1) current_cd = max(0,current_cd-1);
-current_recoil = max(0,floor(current_recoil*0.8));
+current_delay = max(-1, current_delay - 1);
+if (current_delay == -1) current_cd = max(0, current_cd - 1);
+current_recoil = max(0, floor(current_recoil * 0.8));
 
 if (keyboard_check_pressed(ord("1")) && wp_grid[# 0, 2] > 0) s_change_weapon(wp_grid[# 0, 2] - 16);
 if (keyboard_check_pressed(ord("2")) && wp_grid[# 0, 3] > 0) s_change_weapon(wp_grid[# 0, 3] - 16);

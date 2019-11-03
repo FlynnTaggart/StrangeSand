@@ -35,5 +35,5 @@ attacking_rate = 30;
 cooldown = 120;
 facing = 0;
 y_frame = 2;
-hp = 1;
+hp = 2;
 chekk = 0;

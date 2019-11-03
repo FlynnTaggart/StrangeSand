@@ -5,9 +5,8 @@ move_y = 0;
 if(can_move){
 	var idle = choose(0, 1);
 	if(!idle){
-		h_input = choose(-1, 1);
+		h_input = choose(-1, 0, 1);
 		v_input = choose(-1, 0, 1);
-
 		if(h_input != 0 || v_input != 0){
 			dirr = point_direction(0, 0, h_input, v_input);
 			move_x = lengthdir_x(spd, dirr);

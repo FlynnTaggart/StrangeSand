@@ -1,10 +1,9 @@
 event_inherited();
 
+x_offset = 32;
+y_offset = 59;
+
 show_debug_message("x_offset: " + string(x_offset) + "    y_offset: " + string(y_offset))
-
-x_offset = sprite_get_xoffset(mask_index);
-y_offset = sprite_get_yoffset(mask_index);
-
 
 walk_spd = 1;
 norm_spd = 2;
@@ -38,6 +37,10 @@ attacking_rate = 30;
 cooldown = 120;
 facing = 0;
 hp = 1;
+attacking = false;
+triggered = false;
+trigger_rad = 600;
+can_attack = true;
 
 alarm[0] = 1;
 facing = 0;
@@ -48,3 +51,8 @@ with(inst){
 	s_change_weapon(1);
 }*/
 is_dead = false;
+
+var inst = instance_create_layer(x, y, "Instances", obj_weapon_enemy);
+with(inst){
+	owner = other.id;
+}

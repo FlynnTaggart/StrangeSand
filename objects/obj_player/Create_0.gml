@@ -26,6 +26,8 @@ spr_torso = spr_torso_male_chest;
 spr_hair = spr_hair_male_mohawk_blonde;
 
 facing = 0;
+attacked = false;
+flash = 0;
 
 portrait_index = 7;
 name = "Player";

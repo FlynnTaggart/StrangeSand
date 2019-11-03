@@ -1,3 +1,3 @@
-if(obj_player.is_dead){
+if(owner.is_dead){
 	instance_destroy();	
 }

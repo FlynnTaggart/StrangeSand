@@ -47,5 +47,3 @@ s_change_weapon(weapon);
 current_cd = 0;
 current_delay = -1;
 current_recoil = 0;
-
-owner = -1;
