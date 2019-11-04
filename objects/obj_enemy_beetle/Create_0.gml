@@ -37,3 +37,4 @@ facing = 0;
 y_frame = 2;
 hp = 2;
 chekk = 0;
+can_attack = false;

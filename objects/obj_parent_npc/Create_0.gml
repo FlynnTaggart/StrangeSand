@@ -33,3 +33,9 @@ text = ["This person has nothing to say"];
 speakers = [id];
 next_line = [0];
 scripts = -1;
+has_quest = true;
+
+hq_inst = instance_create_layer(x, y - 48, "Instances", obj_has_quest);
+with(hq_inst){
+	owner = other.id;
+}

@@ -27,7 +27,7 @@ for(var yy = 0; yy < ds_height; ++yy){
 		c = c_orange;
 		xo = -(x_buffer) / 2;
 	}
-	if(page == menu_page.start && yy == 1){
+	if(page == menu_page.start && yy == 1 && !file_exists("Save.sav")){
 		c = c_dkgray;
 	}
 	draw_text_color(ltx + xo, lty, ds_grid[# 0, yy], c, c, c, c, 1);

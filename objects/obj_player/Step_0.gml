@@ -25,13 +25,13 @@ move_y = 0;
 h_input = input_right - input_left;
 v_input = input_down - input_up;
 
-
-if(h_input != 0 || v_input != 0){
-	dirr = point_direction(0, 0, h_input, v_input);
-	move_x = lengthdir_x(spd, dirr);
-	move_y = lengthdir_y(spd, dirr);
-	is_moving = true;
-}
+if(can_move)
+	if(h_input != 0 || v_input != 0){
+		dirr = point_direction(0, 0, h_input, v_input);
+		move_x = lengthdir_x(spd, dirr);
+		move_y = lengthdir_y(spd, dirr);
+		is_moving = true;
+	}
 /*else
 	facing = -1;*/
 	
@@ -86,6 +86,8 @@ var inst = instance_place(x, y, obj_transition);
 if(inst != noone && facing == inst.player_facing_before){
 	with(obj_game){
 		if(!do_transition){
+			if(inst.target_room == global.ds_quests[# 4, quests.Go_out_the_house])
+				s_complete_quest(quests.Go_out_the_house, -1);
 			spawn_room = inst.target_room;
 			spawn_x = inst.target_x;
 			spawn_y = inst.target_y;
@@ -95,11 +97,19 @@ if(inst != noone && facing == inst.player_facing_before){
 	}
 }
 
+var inst = instance_place(x, y, obj_enter_to_loc);
+if(inst != noone){
+	if(inst.location == global.ds_quests[# 3, quests.Go_to_farm])
+		s_complete_quest(quests.Go_to_farm, -1);
+}
+
+
 if(input_interact){
 	if(active_textbox == noone){
 		var inst = collision_rectangle(x - radius, y - radius, x + radius, y + radius, obj_parent_npc, false, false);
 		if(inst != noone){
 			with(inst){
+				other.can_move = false;
 				other.active_textbox = s_crate_text_box(text, speakers, next_line, scripts, start_page, id);
 				can_move = false;
 				move_x = 0;

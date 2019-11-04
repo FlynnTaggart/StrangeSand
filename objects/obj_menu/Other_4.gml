@@ -5,12 +5,14 @@ if(room == rm_start){
 	global.pause = true;
 	ds_menu_settings[# 2, 3] = prev_page;
 	ds_menu_ask_to_exit[# 2, 1] = prev_page;
+	s_load_settings();
 }
-else if(room == rm_village){
+else/* if(room == rm_village)*/{
 	instance_activate_all();
 	page = menu_page.main;
 	prev_page = menu_page.main;
 	global.pause = false;
 	ds_menu_settings[# 2, 3] = prev_page;
 	ds_menu_ask_to_exit[# 2, 1] = prev_page;
+	s_load_settings();
 }

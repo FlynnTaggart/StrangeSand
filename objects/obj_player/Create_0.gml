@@ -40,3 +40,4 @@ active_textbox = noone;
 var layer_id = layer_get_id("Instances");
 
 show_debug_message("Layer_id = " + string(layer_id));
+can_move = true;

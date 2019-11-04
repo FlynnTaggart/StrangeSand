@@ -2,7 +2,7 @@ global.pause = false;
 global.view_width = global.game_width;
 global.view_height = global.game_height;
 
-global.key_revrt = ord("X");
+//global.key_revrt = ord("X");
 global.key_enter = vk_enter;
 global.key_up = ord("W");
 global.key_down = ord("S");
@@ -43,12 +43,12 @@ ds_menu_settings = s_create_menu_page(
 	["BACK", menu_element_type.page_transfer, prev_page],
 );
 
-ds_menu_audio = s_create_menu_page(
+global.ds_menu_audio = s_create_menu_page(
 	["MASTER", menu_element_type.slider, s_change_volume, 1, [0, 1]],
 	["BACK", menu_element_type.page_transfer, menu_page.settings],
 );
 
-ds_menu_controls = s_create_menu_page(
+global.ds_menu_controls = s_create_menu_page(
 	["UP", menu_element_type.input, "key_up", ord("W")],
 	["DOWN", menu_element_type.input, "key_down", ord("S")],
 	["LEFT", menu_element_type.input, "key_left", ord("A")],
@@ -56,7 +56,7 @@ ds_menu_controls = s_create_menu_page(
 	["BACK", menu_element_type.page_transfer, menu_page.settings],
 );
 
-ds_menu_graphics = s_create_menu_page(
+global.ds_menu_graphics = s_create_menu_page(
 	["FULLSCREEN", menu_element_type.toggle, s_change_window_mode, 1, ["ON", "OFF"]],
 	["BACK", menu_element_type.page_transfer, menu_page.settings],
 );
@@ -77,8 +77,10 @@ ds_menu_ask_to_advice = s_create_menu_page(
 );
 
 page = 0;
-menu_pages = [ds_menu_main, ds_menu_settings, ds_menu_audio, ds_menu_controls, ds_menu_graphics, ds_menu_start, ds_menu_ask_to_exit, ds_menu_ask_to_advice];
+menu_pages = [ds_menu_main, ds_menu_settings, global.ds_menu_audio, global.ds_menu_controls, global.ds_menu_graphics, ds_menu_start, ds_menu_ask_to_exit, ds_menu_ask_to_advice];
 for(var i = 0; i < array_length_1d(menu_pages); ++i)
 	menu_option[i] = 0;
 	
 inputting = false;
+global.show_advice = false;
+global.advice_complete = false;

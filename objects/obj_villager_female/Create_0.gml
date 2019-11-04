@@ -20,3 +20,4 @@ scripts = [
 	-1,
 	-1,
 ];
+has_quest = false;

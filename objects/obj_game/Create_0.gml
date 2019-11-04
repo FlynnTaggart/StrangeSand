@@ -31,3 +31,5 @@ global.game_height = 360;
 display_set_gui_size(global.game_width, global.game_height);
 
 global.show_advice = false;
+
+global.loadded_room = rm_player_house;

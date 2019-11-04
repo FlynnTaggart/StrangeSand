@@ -7,10 +7,14 @@ y_buffer = 16;
 enum quest_type{
 	GATHER,
 	KILL,
+	SPECIAL,
+	GOTOLOC,
 	height,
 }
 
 enum quests{
+	Go_out_the_house,
+	Go_to_farm,
 	Get_the_key,
 	Kill_beetles,
 	height,
@@ -22,9 +26,38 @@ enum reward{
 	height,
 }
 
+enum loc{
+	farm,
+	height,
+}
+
 quest_count = quests.height;
 
 global.ds_quests = s_quest_grid_create(
+	[
+		0,
+		quest_type.SPECIAL,
+		"Go out the house",
+		rm_player_house,
+		rm_village,
+		noone,
+		-1,
+		-1,
+		-1,
+		["Go out of the house"],
+	],
+	[
+		-1,
+		quest_type.GOTOLOC,
+		"Go to farm",
+		loc.farm,
+		-1,
+		obj_olderman,
+		-1,
+		-1,
+		-1,
+		["Go to farm and talk to farmer"],
+	],
 	[
 		-1,
 		quest_type.GATHER,
@@ -42,11 +75,11 @@ global.ds_quests = s_quest_grid_create(
 		quest_type.KILL,
 		"Kill beetles",
 		enemies.beetle,
-		2,
-		obj_silvio,
-		reward.Gold,
+		4,
+		obj_farmer,
 		-1,
-		30,
-		["Kill the beetles and tell about it to Silvio"],
+		-1,
+		-1,
+		["Kill the beetles and then talk to farmer"],
 	]
 );

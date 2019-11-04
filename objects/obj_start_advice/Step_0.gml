@@ -13,6 +13,7 @@ switch(advice_type){
 	break;
 }
 
+
 if(page > advice_count - 1){
 	show = false;
 	global.advice_complete = true;

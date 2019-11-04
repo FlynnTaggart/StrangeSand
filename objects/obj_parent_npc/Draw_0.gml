@@ -29,7 +29,6 @@ if(spr_torso != -1) draw_sprite_part(spr_torso, 0, floor(x_frame) * frame_size, 
 //hair
 if(spr_hair != -1)  draw_sprite_part(spr_hair, 0, floor(x_frame) * frame_size, y_frame * frame_size, frame_size, frame_size, xx, yy);
 
-
 if(x_frame < anim_len - 1){
 	x_frame += anim_spd / 60;
 }

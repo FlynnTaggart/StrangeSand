@@ -54,16 +54,22 @@ else{
 
 if(input_enter_p){
 	switch(ds_grid[# 1, menu_option[page]])	{
-		case menu_element_type.script_runner: script_execute(ds_grid[# 2, menu_option[page]]); break;
+		case menu_element_type.script_runner: 
+			var script = ds_grid[# 2, menu_option[page]];
+			if(script == s_continue_game)
+				s_load_game();
+			script_execute(script); 
+		break;
 		case menu_element_type.page_transfer: 
 			page = ds_grid[# 2, menu_option[page]]; 
 			if(audio_is_playing(snd_1)) audio_stop_sound(snd_1);
 		break;
 		case menu_element_type.shift:
 		case menu_element_type.slider:
-		case menu_element_type.toggle: if(inputting){ script_execute(ds_grid[# 2, menu_option[page]], ds_grid[# 3, menu_option[page]]); };
+		case menu_element_type.toggle: if(inputting){ script_execute(ds_grid[# 2, menu_option[page]], ds_grid[# 3, menu_option[page]]);};
 		case menu_element_type.input:
 			inputting = !inputting;
 			break;
 	}
+	s_save_settings();
 }
