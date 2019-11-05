@@ -8,7 +8,7 @@ spr_legs = -1;
 spr_torso = -1;
 spr_hair = -1;
 
-portrait_index = 6;
+portrait_index = 7;
 name = "Elder";
 voice = snd_voice2;
 start_page = 0;

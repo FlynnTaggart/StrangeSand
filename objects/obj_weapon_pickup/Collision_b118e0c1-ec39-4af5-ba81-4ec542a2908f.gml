@@ -1,3 +1,4 @@
+audio_play_sound(snd_take_gun, 1, false);
 var wp_typee = wp_type;
 var pickup_flag = false;
 with (obj_weapon){
@@ -36,11 +37,5 @@ with (obj_weapon){
 		}
 	}
 }
-/*obj_player.spr_shadow = spr_character_shadow;
-obj_player.spr_base = spr_base_male_2_test;
-obj_player.spr_feet = spr_feet_male_boots_brown;
-obj_player.spr_legs = spr_legs_male_robe_skirt_test;
-obj_player.spr_torso = spr_torso_male_chest_test;
-obj_player.spr_hair = spr_hair_male_mohawk_blonde;*/
 if(pickup_flag)
 	instance_destroy();

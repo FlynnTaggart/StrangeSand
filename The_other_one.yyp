@@ -111,6 +111,14 @@
             }
         },
         {
+            "Key": "0c3b53de-972b-4a4e-b28d-5ef7c68229c1",
+            "Value": {
+                "id": "208c1974-0eb3-4937-9e72-ed3e10196d07",
+                "resourcePath": "tilesets\\tile_outside_objects\\tile_outside_objects.yy",
+                "resourceType": "GMTileSet"
+            }
+        },
+        {
             "Key": "0c6e5b7d-d05f-4d05-8f8f-47ecf4b986d0",
             "Value": {
                 "id": "18d2f2c8-5ddd-4050-a3ad-277b5f4ca316",
@@ -140,6 +148,14 @@
                 "id": "6d1e643f-e49e-4d42-af5a-46a5f1636170",
                 "resourcePath": "sprites\\spr_tile_deseret_house\\spr_tile_deseret_house.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "1172cd6b-8219-49f7-893d-cf3b300446f1",
+            "Value": {
+                "id": "c8b8a2b3-3a27-47ac-bdc7-ec74087b5dbf",
+                "resourcePath": "sounds\\snd_shot\\snd_shot.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -628,6 +644,14 @@
                 "id": "e7d5539d-1283-4b86-97ba-ecce1a327ea2",
                 "resourcePath": "views\\47b3a770-95d8-41df-bf05-75729e2be7d3.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "48c139c4-804f-4957-9e48-b0d527531809",
+            "Value": {
+                "id": "11d877f6-47ad-4685-b5ea-4335ee961ea4",
+                "resourcePath": "sprites\\spr_weapon_pl\\spr_weapon_pl.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1295,6 +1319,14 @@
             }
         },
         {
+            "Key": "a97129fe-dd80-4daf-8ef3-ff2f25fd66a2",
+            "Value": {
+                "id": "0d5d7dc3-65b1-4850-a6c9-e0a77af8f8ce",
+                "resourcePath": "objects\\obj_melee_attack\\obj_melee_attack.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ab1d8498-2358-4fe2-92fe-192872f198e0",
             "Value": {
                 "id": "eba94a96-3bea-40f0-8169-ab25aadadcbf",
@@ -1575,6 +1607,14 @@
             }
         },
         {
+            "Key": "cd3c180c-ce16-4eb3-91d2-2559df6274cd",
+            "Value": {
+                "id": "cc53afe3-2373-4622-8851-11658f588dfa",
+                "resourcePath": "sounds\\snd_take_gun\\snd_take_gun.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "cd66fbac-5334-44d0-95b8-ae639dec7e62",
             "Value": {
                 "id": "360552b6-5847-4ab6-bfa4-e6b935fb6fb7",
@@ -1812,6 +1852,14 @@
                 "id": "0543e5d8-acc5-4ca9-8bbc-d5a0658e54cb",
                 "resourcePath": "sprites\\spr_torso_male_shirt_brown\\spr_torso_male_shirt_brown.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ecdd2614-c2ae-4235-a967-5b209faedeb3",
+            "Value": {
+                "id": "52041cc6-4a5f-4e16-a837-7cfe74d15460",
+                "resourcePath": "sounds\\snd_coin\\snd_coin.yy",
+                "resourceType": "GMSound"
             }
         },
         {

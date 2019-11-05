@@ -24,6 +24,7 @@ spr_feet = spr_feet_male_boots_brown;
 spr_legs = spr_legs_male_robe_skirt;
 spr_torso = spr_torso_male_chest;
 spr_hair = spr_hair_male_mohawk_blonde;
+spr_weapon = spr_weapon_pl;
 
 facing = 0;
 attacked = false;
@@ -41,3 +42,5 @@ var layer_id = layer_get_id("Instances");
 
 show_debug_message("Layer_id = " + string(layer_id));
 can_move = true;
+has_gun = false;
+melee_attack = false;

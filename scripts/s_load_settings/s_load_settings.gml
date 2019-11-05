@@ -28,13 +28,14 @@ if (file_exists("Settings.sav")){
 	var ds_controls_str = ini_read_string("Controls", "ds_controls_str", ds_controlss_str);
 	var ds_graphics_str = ini_read_string("Graphics", "ds_graphics_str", ds_graphicss_str);
 	global.show_advice = ini_read_real("Advice", "show_advice", false);
+	global.advice_complete = ini_read_real("Advice", "advice_complete", false);
 	ini_close();
 	ds_grid_read(global.ds_menu_audio, ds_audio_str);
 	ds_grid_read(global.ds_menu_controls, ds_controls_str);
 	ds_grid_read(global.ds_menu_graphics, ds_graphics_str);
 	s_change_volume(global.ds_menu_audio[# 3, 0]);
 	s_change_window_mode(global.ds_menu_graphics[# 3, 0]);
-	for(var i = 0; i < 4; ++i){
+	for(var i = 0; i < 6; ++i){
 		variable_global_set(global.ds_menu_controls[# 2, i], global.ds_menu_controls[# 3, i]);
 	}
 }

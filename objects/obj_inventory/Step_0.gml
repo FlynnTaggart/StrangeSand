@@ -1,5 +1,5 @@
 depth = -1000;
-if(global.advice_complete && keyboard_check_pressed(ord("I"))) show_inventory = !show_inventory;
+if(global.advice_complete && keyboard_check_pressed(global.invenory_key)) show_inventory = !show_inventory;
 
 if(!show_inventory) exit;
 
@@ -379,8 +379,12 @@ else if(ss_item != item.none){
 			show_debug_message("Dropped  " + string(ss_item))
 	}
 	if(mouse_check_button_pressed(mb_right)){
-		if(mouse_in_weapon_slots && pickup_slot == -1)
+		if(mouse_in_weapon_slots && pickup_slot == -1){
 			weapon_pickup_slot = selected_weapon_slot;
+			with(obj_weapon){
+				s_change_weapon(0);
+			}
+		}
 		else if(weapon_pickup_slot == -1)
 			pickup_slot = selected_slot;
 	}

@@ -31,8 +31,9 @@ if (mouseb){
 	}	
 }
 
-if (current_delay == 0) && (projectile != -1){
+if (current_delay == 0 && projectile != -1){
 	if (ammo[weapon] != 0){
+		audio_play_sound(snd_shot, 1, false);
 		with (instance_create_layer(x + lengthdir_x(length, direction), y + lengthdir_y(length, direction) - 3, "Projectiles", projectile)){
 			image_angle = other.direction;
 			direction = other.direction;
@@ -48,8 +49,7 @@ if (current_delay == 0) && (projectile != -1){
 		move_x += lengthdir_x(other.recoil_push,other.direction);
 		move_y += lengthdir_y(other.recoil_push,other.direction); 
 	}
-	current_recoil = recoil;
-	
+	current_recoil = recoil;	
 }
 
 current_delay = max(-1, current_delay - 1);

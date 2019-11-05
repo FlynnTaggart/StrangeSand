@@ -1,3 +1,4 @@
+audio_play_sound(snd_coin, 1, false);
 var pickup_flag = false;
 var found_free_inv_slot = false;
 var inv_grid = global.ds_inventory;

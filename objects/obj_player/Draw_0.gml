@@ -12,7 +12,22 @@ if(is_dead){
 	var anim_spd = 4;
 	y_frame = 20;
 }
-if(!is_dead){
+if(melee_attack){
+	var anim_len = 6;
+	var anim_spd = 13;
+	switch(facing){
+		case dir.right: y_frame = 11; break;
+		case dir.right_up: y_frame = 11; break;
+		case dir.right_down: y_frame = 11; break;
+		case dir.up: y_frame = 8; break;
+		case dir.left: y_frame = 9; break;
+		case dir.left_up: y_frame = 9; break;
+		case dir.left_down: y_frame = 9; break;
+		case dir.down: y_frame = 10; break;
+		case -1: x_frame = 0; break;
+	}
+}
+else if(!is_dead){
 	if(is_moving)
 		switch(facing){
 			case dir.right: y_frame = 11; break;
@@ -37,7 +52,7 @@ if(!is_dead){
 			case dir.left_up: y_frame = 9; break;
 			case dir.left_down: y_frame = 9; break;
 			case dir.down: y_frame = 10; break;
-			//case -1: x_frame = 0; break;
+			case -1: x_frame = 0; break;
 		}
 	}
 }
@@ -50,6 +65,14 @@ if(!is_dead){
 	}
 	else{
 		x_frame = 1;	
+	}
+}
+else if(melee_attack){
+	if(x_frame + anim_spd / 60 < anim_len){
+		x_frame += anim_spd / 60;
+	}
+	else{
+		melee_attack = false;	
 	}
 }
 else{
@@ -78,3 +101,6 @@ if(spr_torso != -1) draw_sprite_part(spr_torso, 0, floor(x_frame) * frame_size, 
 if(spr_hair != -1)  draw_sprite_part(spr_hair, 0, floor(x_frame) * frame_size, y_frame * frame_size, frame_size, frame_size, xx, yy);
 
 shader_reset();
+
+if(melee_attack)
+	draw_sprite_part(spr_weapon, 0, floor(x_frame) * frame_size, y_frame * frame_size, frame_size, frame_size, xx, yy);

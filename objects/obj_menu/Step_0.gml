@@ -2,7 +2,7 @@ if(!global.pause) exit;
 
 input_up_p = keyboard_check_pressed(global.key_up);
 input_dwon_p = keyboard_check_pressed(global.key_down);
-input_enter_p = keyboard_check_pressed(global.key_enter);
+input_enter_p = keyboard_check_pressed(global.key_enter) || keyboard_check_pressed(global.interact_key);
 
 var ds_grid = menu_pages[page], ds_height = ds_grid_height(ds_grid);
 
@@ -56,9 +56,13 @@ if(input_enter_p){
 	switch(ds_grid[# 1, menu_option[page]])	{
 		case menu_element_type.script_runner: 
 			var script = ds_grid[# 2, menu_option[page]];
-			if(script == s_continue_game)
-				s_load_game();
-			script_execute(script); 
+			if(script == s_continue_game && file_exists("Save.sav"))
+				script_execute(script);
+			else if(script == s_continue_game && !file_exists("Save.sav")){
+				//do nothing
+			}
+			else
+				script_execute(script);
 		break;
 		case menu_element_type.page_transfer: 
 			page = ds_grid[# 2, menu_option[page]]; 

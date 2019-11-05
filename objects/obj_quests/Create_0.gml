@@ -14,6 +14,7 @@ enum quest_type{
 
 enum quests{
 	Go_out_the_house,
+	Talk_with_Elder,
 	Go_to_farm,
 	Get_the_key,
 	Kill_beetles,
@@ -45,6 +46,18 @@ global.ds_quests = s_quest_grid_create(
 		-1,
 		-1,
 		["Go out of the house"],
+	],
+	[
+		-1,
+		quest_type.SPECIAL,
+		"Talk with Elder",
+		-1,
+		-1,
+		noone,
+		-1,
+		-1,
+		-1,
+		["Speak to the Elder"],
 	],
 	[
 		-1,

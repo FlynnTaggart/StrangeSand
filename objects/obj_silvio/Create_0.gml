@@ -13,42 +13,41 @@ name = "Silvio";
 voice = snd_voice2;
 start_page = 0;
 text = [
-	"Hi! My name is Silvio Some test text more more.Some testtext more more.Some testtext more more.Some test text more more.Some test text more more.",
+	"Hi! My name is Silvio. I need a key, it is on the West of the village. Can you please get it?",
 	[
-		"Take a quest with beetles", 
-		"Check quest with beetles",
+		"Accept", 
+		"Refuse",
 	], 
 	"Thanks", 
-	"Nice u have killed them",
-	"U didn't killed them",
-	"Do u have quest for me",
+	"Ok, goodbye.",
+	"Hi! Do you have a key?",
 	[
-		"Take a quest with key", 
-		"Check quest with key",
-	], 
-	"Thanks", 
-	"Nice u have a key",
-	"U didn't get a key",
+		"Yes", 
+		"No",
+	],
+	"Oh, nice!",
+	"No! You dont have it.",
+	"Ok, goodbye.",
+	"Hi!"
 ];
 speakers = [id, obj_player.id, id, id, id, id, obj_player.id, id, id, id];
-next_line = [0, [2, 3], -1, -1, -1, 0, [7, 8], -1, -1, -1,];
+next_line = [0, [2, 3], -1, -1, 0, [6, 8], -1, -1, -1, -1,];
 
 scripts = [
 	-1,
 	[
-		[s_start_quest, quests.Kill_beetles],
-		[s_check_quest, quests.Kill_beetles, 3, 4],
+		[s_start_quest, quests.Get_the_key, 4],
+		-1,
 	],
 	-1,
-	[s_complete_quest, quests.Kill_beetles, 5],
 	-1,
-	
 	-1,
 	[
-		[s_start_quest, quests.Get_the_key],
-		[s_check_quest, quests.Get_the_key, 8, 9],
+		[s_check_quest, quests.Get_the_key, 6, 7],
+		-1,
 	],
+	[s_complete_quest, quests.Get_the_key, 9],
 	-1,
-	[s_complete_quest, quests.Get_the_key, 5],
+	-1,
 	-1,
 ];

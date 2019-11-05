@@ -8,6 +8,8 @@ global.key_up = ord("W");
 global.key_down = ord("S");
 global.key_left = ord("A");
 global.key_right = ord("D");
+global.invenory_key = ord("I");
+global.interact_key = ord("E");
 
 enum menu_page{
 	main,
@@ -53,6 +55,8 @@ global.ds_menu_controls = s_create_menu_page(
 	["DOWN", menu_element_type.input, "key_down", ord("S")],
 	["LEFT", menu_element_type.input, "key_left", ord("A")],
 	["RIGHT", menu_element_type.input, "key_right", ord("D")],
+	["INVENTORY", menu_element_type.input, "invenory_key", ord("I")],
+	["INTERACTION", menu_element_type.input, "interact_key", ord("E")],
 	["BACK", menu_element_type.page_transfer, menu_page.settings],
 );
 
